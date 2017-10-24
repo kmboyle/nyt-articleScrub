@@ -3,8 +3,6 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
 const PORT = process.env.PORT || 3001;
 
 // Configure body parser for AJAX requests
@@ -25,11 +23,7 @@ mongoose.connect(
         useMongoClient: true
     }
 );
-io.on('connection', function(client) {
-    client.on('event', function(data) {});
-    client.on('disconnect', function() {});
-});
 // Start the API server
-server.listen(PORT, function() {
+app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
