@@ -1,8 +1,7 @@
 const db = require("../models");
 const express = require("express");
 const app = express();
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+
 
 module.exports = {
     findAll: function(req, res) {
