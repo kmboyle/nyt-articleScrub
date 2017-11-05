@@ -18,7 +18,7 @@ const Search = props =>
 
         {/* <!-- Here we capture the Start Year Parameter--> */}
         <div className="form-group">
-        <label htmlFor="start-year">Start Year (Optional):</label>
+        <label htmlFor="start-year">Start Year (Optional) Format YYYY-MM-DD:</label>
         <input type="text" className="form-control" id="start-year"
         value = {props.startYear} 
         onChange= {props.handleInputChange}
@@ -27,7 +27,7 @@ const Search = props =>
 
         {/* <!-- Here we capture the End Year Parameter --> */}
         <div className="form-group">
-        <label htmlFor="end-year">End Year (Optional):</label>
+        <label htmlFor="end-year">End Year (Optional)  Format YYYY-MM-DD:</label>
         <input type="text" className="form-control" id="end-year"
         value = {props.endYear} 
         onChange= {props.handleInputChange}

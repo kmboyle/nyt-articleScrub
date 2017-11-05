@@ -75,13 +75,14 @@ state = {
     if (this.state.startYear.length === 0 ||  this.state.endYear.length === 0){
       this.searchArticles(this.state.searchPrase);
     }
-    console.log((isValidDate(this.state.startYear)));
+    //checking the year entries to ensure correct format
+    console.log(this.state.startYear);
     if (isValidDate(this.state.startYear) && isValidDate(this.state.endYear)){
       console.log('test');
         this.searchArticles(this.state.searchPhrase,this.state.startYear,this.state.endYear);
       }
       else {
-        alert("invalid entry, dates must be in 'YYYYMMDD' format");
+        alert("invalid entry, dates must be in 'YYYY-MM-DD' format");
   }
   
 };
