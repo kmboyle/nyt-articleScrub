@@ -23,10 +23,17 @@ state = {
   }
   searchArticles = (query,start,end) => {
       API.search(query,start,end)
-      .then(res => this.setState({articles: res.data.response.docs}))
+      .then(res => this.setState({articles: res.data.response.docs, searchPhrase: "", endYear: "", startYear: ""})
+      )
       .catch(err => console.log(err));
-
   };
+  searchArticlesTermOnly = (query) => {
+    API.searchTermOnly(query)
+    .then(res => this.setState({
+      articles: res.data.response.docs, searchPhrase: "", endYear: "", startYear: ""}))
+    .catch(err => console.log(err));
+    console.log(this.state.searchPhrase);
+};
   handleInputChange = event =>{
       const value = event.target.value
       const name = event.target.name;
@@ -70,15 +77,13 @@ state = {
      // Check the range of the day
      return day > 0 && day <= monthLength[month - 1];
       }
-    
-
+    //if user does not enter date, complete search with term only
     if (this.state.startYear.length === 0 ||  this.state.endYear.length === 0){
-      this.searchArticles(this.state.searchPrase);
+      this.searchArticlesTermOnly(this.state.searchPhrase);
+      return;
     }
     //checking the year entries to ensure correct format
-    console.log(this.state.startYear);
     if (isValidDate(this.state.startYear) && isValidDate(this.state.endYear)){
-      console.log('test');
         this.searchArticles(this.state.searchPhrase,this.state.startYear,this.state.endYear);
       }
       else {
@@ -88,8 +93,12 @@ state = {
 };
   loadArticles=()=>{
     API.getArticles()
-    .then(res=>{this.setState({saved: res.data})})
-  }
+    .then(res=>{this.setState({saved: res.data,
+      searchPhrase: "", 
+      endYear: "", 
+      startYear: ""})
+    })
+  };
 
   handleSave = (headline, href) => {
     API.saveArticle({
@@ -105,6 +114,7 @@ state = {
       .catch(err=> console.log(err));
 
     };
+    
   render() {
     return (
         <div>

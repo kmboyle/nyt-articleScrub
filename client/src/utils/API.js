@@ -7,6 +7,10 @@ export default {
 
         return axios.get(BASEURL + query + "&begin_date=" + begin + "&end_date=" + end + APIKEY);
     },
+    searchTermOnly: function(query) {
+
+        return axios.get(BASEURL + query + APIKEY);
+    },
     getArticles: function() {
         return axios.get("/api/articles");
     },
@@ -15,7 +19,7 @@ export default {
         return axios.post("/api/articles", articleData);
     },
     deleteArticle: function(id) {
-        console.log(id);
+
         return axios.delete("/api/articles/" + id);
     }
 };
