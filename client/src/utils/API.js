@@ -1,6 +1,6 @@
 import axios from "axios";
 const BASEURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=";
-const APIKEY = "&api-key=48a4be7acc7344319bd90c8d78a89c08";
+const APIKEY = "&api-key=Sp2JcVEAl0G3fBnSmGwNsaTm6nM5u3b5";
 
 export default {
     search: function(query, begin, end) {
