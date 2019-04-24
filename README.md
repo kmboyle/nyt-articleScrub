@@ -1,6 +1,8 @@
 # nyt-articleScrub
 
 Demo App:
-Front End Framework: React
-Back End DB: MongoDB
-Back End Server: Node.js
+<ul>
+  <li>Front End Framework: React</li>
+ <li>Back End DB: MongoDB</li>
+ <li>Back End Server: Node.js</li>
+ </ul>
